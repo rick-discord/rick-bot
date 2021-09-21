@@ -42,7 +42,7 @@ async def invite(ctx):
 async def penis(ctx):
     await ctx.send('╰U╯')
 
-@client.command(name='gay', help='post GAAAAY gif')
+@client.command(name='gay', aliases=['sus'], help='post GAAAAY gif')
 async def gay(ctx):
     await ctx.send('https://tenor.com/view/rick-and-morty-gay-insult-gif-12293667')
 
@@ -65,6 +65,8 @@ async def roll(ctx):
 async def credits(ctx):
     await ctx.send('༼ ºل͟º ༽')
 
+
+#staff commands
 @client.command(name="ban", help="command to ban a user")
 @commands.has_permissions(ban_members=True)
 async def _ban(ctx, member: discord.Member, *, reason=None):
@@ -101,6 +103,6 @@ async def _kick(ctx, member: discord.Member, *, reason=None):
 @tasks.loop(seconds=10)
 async def change_status():
     await client.change_presence(activity=discord.Game(choice(status)))
-status = ['-help', 'made by doof.exe#8028 and Trevi4kо#2636', 'BuUuURp', 'wabalabadubdub', 'and thats the way the news gos']
+status = ['-help', 'made by doof.exe#8028', 'BuUuURp', 'wabalabadubdub', 'and thats the way the news gos']
 
 client.run(os.getenv('TOKEN'))
