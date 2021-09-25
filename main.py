@@ -11,7 +11,6 @@ client = commands.Bot (command_prefix=('-', 'rick '))
 buttons = ButtonsClient(client)
 db["test"] = ""
 
-
 @client.event
 async def on_ready():
     change_status.start()
@@ -20,7 +19,7 @@ async def on_ready():
 @client.command(name='ping', help='This command returns the latency')
 async def ping(ctx):
     await ctx.send(f'**Pong!** Latency: {round(client.latency * 1000)}ms')
-
+    
 @client.command(name='prefix', help='states the prefix of the server')
 async def prefix(ctx):
     await ctx.send('the prefix is eather - or rick (custom per server prefixes coming soon)')
@@ -64,40 +63,6 @@ async def roll(ctx):
 @client.command(name='poop', aliases=['shit', 'doodoo'] , help='post shit emoji')
 async def credits(ctx):
     await ctx.send('༼ ºل͟º ༽')
-
-
-#staff commands
-@client.command(name="ban", help="command to ban a user")
-@commands.has_permissions(ban_members=True)
-async def _ban(ctx, member: discord.Member, *, reason=None):
-    """ command to ban user. Check !help ban """
-    try:
-        await member.ban(reason=reason)
-        await ctx.channel.send(f'{member.name} has been banned from the server '
-                               f'reason being: {reason}')
-    except Exception:
-        await ctx.channel.send(f"Bot doesn't have enough permission to ban someone. Upgrade the Permissions")
-
-
-@client.command(name="unban", help="command to unban a user")
-@commands.has_permissions(ban_members=True)
-async def _unban(ctx, *, member_id: int):
-    """ command to unban user. check !help unban """
-    await ctx.guild.unban(discord.Object(id=member_id))
-    await ctx.send(f"Unbaned {member_name}")
-
-@client.command(name="kick", help="command to kick a user")
-@commands.has_permissions(kick_members=True)
-async def _kick(ctx, member: discord.Member, *, reason=None):
-    """ command to kick user. Check -help ban """
-    try:
-        await member.kick(reason=reason)
-        await ctx.channel.send(f'{member.name} has been kicked from the server '
-                               f'reason being: {reason}')
-    except Exception:
-        await ctx.channel.send(f"Bot doesn't have enough permission to kick someone. Upgrade the Permissions")
-
-
 
 #status
 @tasks.loop(seconds=10)
