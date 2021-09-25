@@ -47,7 +47,7 @@ async def gay(ctx):
 
 @client.command(name='4k', help='post a gif when someone is caught in 4k')
 async def caughtin4k(ctx):
-  responses = ['https://c.tenor.com/QA6mPKs100UAAAAC/caught-in.gif', 'https://i.kym-cdn.com/photos/images/facebook/002/001/991/72f', 'https://www.meme-arsenal.com/memes/a7dd88c29f3d26bb850969619104acbd.jpg']
+  responses = ['https://c.tenor.com/QA6mPKs100UAAAAC/caught-in.gif', 'https://i.kym-cdn.com/photos/images/facebook/002/001/991/72f', 'https://www.meme-arsenal.com/memes/a7dd88c29f3d26bb850969619104acbd.jpg', 'https://imgur.com/lZMSNgM', 'https://imgur.com/CjjlSDH', 'https://imgur.com/UVv6SAW', 'https://imgur.com/tf0VGek']
   await ctx.send(choice(responses))
 
 @client.command(name='gif', help='This command returns a random rick gif')
