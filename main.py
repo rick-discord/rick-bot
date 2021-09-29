@@ -70,7 +70,8 @@ async def credits(ctx):
 
 @client.command(name='welcome', aliases=[] , help='sends a welocme gif')
 async def welcome(ctx):
-    await ctx.send('https://tenor.com/bwdQC.gif')
+    responses = ['https://tenor.com/bwdQC.gif', 'https://tenor.com/bwwU4.gif', 'https://tenor.com/bjDmu.gif', 'https://tenor.com/bf29v.gif']
+    await ctx.send(choice(responses))
 
 #status
 @tasks.loop(seconds=10)
