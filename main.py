@@ -64,6 +64,10 @@ async def roll(ctx):
 async def credits(ctx):
     await ctx.send('༼ ºل͟º ༽')
 
+@client.command(name='18+')
+async def credits(ctx):
+    await ctx.send('YO WHAT U DOIN LOOKIN AT 18+ MAN')
+
 #status
 @tasks.loop(seconds=10)
 async def change_status():
