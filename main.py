@@ -64,9 +64,13 @@ async def roll(ctx):
 async def credits(ctx):
     await ctx.send('༼ ºل͟º ༽')
 
-@client.command(name='18+')
+@client.command(name='18+', aliases=['18'])
 async def credits(ctx):
     await ctx.send('YO WHAT U DOIN LOOKIN AT 18+ MAN')
+
+@client.command(name='welcome', aliases=[] , help='sends a welocme gif')
+async def welcome(ctx):
+    await ctx.send('https://tenor.com/bwdQC.gif')
 
 #status
 @tasks.loop(seconds=10)
