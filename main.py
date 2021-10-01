@@ -6,10 +6,10 @@ from discord_buttons_plugin import  *
 from random import choice
 from replit import db
 
-
 client = commands.Bot (command_prefix=('-', 'rick '))
 buttons = ButtonsClient(client)
-db["test"] = ""
+
+
 
 @client.event
 async def on_ready():
@@ -72,6 +72,14 @@ async def credits(ctx):
 async def welcome(ctx):
     responses = ['https://tenor.com/bwdQC.gif', 'https://tenor.com/bwwU4.gif', 'https://tenor.com/bjDmu.gif', 'https://tenor.com/bf29v.gif']
     await ctx.send(choice(responses))
+
+@client.event
+async def on_member_join(member):
+    print("HAY" + member.name + "welcome to the party biitchhhh")
+
+@client.event
+async def on_member_leave(member):
+    print("well BuUuURp fuck you to leaveing us" + member.name)
 
 #status
 @tasks.loop(seconds=10)
