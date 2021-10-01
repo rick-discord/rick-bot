@@ -127,9 +127,7 @@ async def welcome(ctx):
     await ctx.send(choice(responses))
 
 
-@client.command(
-  name='website',
-  aliases=['site', 'ws'])
+@client.command(name='website', aliases=['site', 'ws'])
 async def website(ctx):
     await ctx.send('https://rick-site.stickman-dev.repl.co')
 
