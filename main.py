@@ -60,7 +60,9 @@ async def penis(ctx):
     await ctx.send('╰U╯')
 
 
-@client.command(name='balls', aliases=['', ''], help='This command makes BALLLS')
+@client.command(name='balls',
+                aliases=['ball', 'nut', 'sack', 'nuts'],
+                help='This command makes BALLLS')
 async def penis(ctx):
     await ctx.send('oo')
 
@@ -112,7 +114,7 @@ async def credits(ctx):
 
 
 @client.command(name='18+', aliases=['18'])
-async def credits(ctx):
+async def chill(ctx):
     await ctx.send('YO WHAT U DOIN LOOKIN AT 18+ MAN')
 
 
@@ -125,6 +127,14 @@ async def welcome(ctx):
     await ctx.send(choice(responses))
 
 
+@client.command(
+  name='website',
+  aliases=['site', 'ws'])
+async def website(ctx):
+    await ctx.send('https://rick-site.stickman-dev.repl.co')
+
+
+#welcome
 @client.event
 async def on_member_join(member):
     print("HAY" + member.name + "welcome to the party biitchhhh")
