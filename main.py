@@ -136,18 +136,20 @@ async def website(ctx):
 async def dm(ctx):
     await ctx.author.send('this a dm lol')
 
+
 #help
 #class HelpCommand(commands.MinimalHelpCommand):
-    #async def send_pages(self):
-        #destination = self.get_destination()
-        #e = discord.Embed(color=discord.Color.blurple(), description='')
-        #for page in self.paginator.pages:
-            #e.description += page
-        #await destination.send(embed=e)
+#async def send_pages(self):
+#destination = self.get_destination()
+#e = discord.Embed(color=discord.Color.blurple(), description='')
+#for page in self.paginator.pages:
+#e.description += page
+#await destination.send(embed=e)
 
 #client.help_command = HelpCommand()
 
-@client.command(name='nuke')
+
+@client.command(name='nuke', help='nukes the server')
 async def nuke(ctx):
     await ctx.send('**NUKING SERVER**')
     time.sleep(1)
@@ -159,10 +161,15 @@ async def nuke(ctx):
     time.sleep(2)
     await ctx.send('**DONE**')
 
-@client.command(name='cap')
+
+@client.command(name='cap', help='send a cap msg')
 async def cap(ctx):
-  responses = ['https://tenor.com/view/cap-stop-the-lying-gif-18330929', 'https://tenor.com/view/thats-cap-youre-lying-false-wrong-fake-news-gif-13870788', ':billed_cap:']
-  await ctx.send(choice(responses))
+    responses = [
+        'https://tenor.com/view/cap-stop-the-lying-gif-18330929',
+        'https://tenor.com/view/thats-cap-youre-lying-false-wrong-fake-news-gif-13870788',
+        ':billed_cap:'
+    ]
+    await ctx.send(choice(responses))
 
 
 #welcome
