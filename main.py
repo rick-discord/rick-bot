@@ -2,13 +2,13 @@ import discord
 import os
 import json
 import asyncio
+import time
 from discord.ext import commands, tasks
-from discord_buttons_plugin import *
 from random import choice
 from replit import db
 
-client = commands.Bot(command_prefix=('-', 'rick '))
-buttons = ButtonsClient(client)
+client = commands.Bot(command_prefix=('-', 'rick '),
+                      intents=discord.Intents.default())
 welcomechannel = client.fetch_channel(893345863714365440)
 
 
@@ -132,6 +132,39 @@ async def website(ctx):
     await ctx.send('https://rick-site.stickman-dev.repl.co')
 
 
+@client.command(name='dm')
+async def dm(ctx):
+    await ctx.author.send('this a dm lol')
+
+#help
+#class HelpCommand(commands.MinimalHelpCommand):
+    #async def send_pages(self):
+        #destination = self.get_destination()
+        #e = discord.Embed(color=discord.Color.blurple(), description='')
+        #for page in self.paginator.pages:
+            #e.description += page
+        #await destination.send(embed=e)
+
+#client.help_command = HelpCommand()
+
+@client.command(name='nuke')
+async def nuke(ctx):
+    await ctx.send('**NUKING SERVER**')
+    time.sleep(1)
+    await ctx.send('**deleting all channels**')
+    time.sleep(2)
+    await ctx.send('**deleting all roles**')
+    time.sleep(2)
+    await ctx.send('**removing owner from server**')
+    time.sleep(2)
+    await ctx.send('**DONE**')
+
+@client.command(name='cap')
+async def cap(ctx):
+  responses = ['https://tenor.com/view/cap-stop-the-lying-gif-18330929', 'https://tenor.com/view/thats-cap-youre-lying-false-wrong-fake-news-gif-13870788', ':billed_cap:']
+  await ctx.send(choice(responses))
+
+
 #welcome
 @client.event
 async def on_member_join(member):
@@ -150,8 +183,8 @@ async def change_status():
 
 
 status = [
-    '-help', 'made by doof.exe#8028', 'BuUuURp', 'wabalabadubdub',
-    'and thats the way the news gos'
+    '-help', 'made by doof.exe#8028 and Trevi4kо#2636', 'BuUuURp',
+    'wabalabadubdub', 'and thats the way the news gos'
 ]
 
 client.run(os.getenv('TOKEN'))
