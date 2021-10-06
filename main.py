@@ -134,7 +134,7 @@ async def website(ctx):
 
 @client.command(name='dm')
 async def dm(ctx):
-    await ctx.author.send('this a dm lol')
+    await ctx.author.send('slidin in the dms')
 
 
 #help
@@ -171,9 +171,12 @@ async def cap(ctx):
     ]
     await ctx.send(choice(responses))
 
+@client.command(name='servers', help='tells how many servers the bot is in')
+async def chill(ctx):
+    await ctx.send("BUuuUrp I'm in " + str(len(client.guilds)) + " servers!")
 
 #welcome
-@client.event
+@client.command
 async def on_member_join(member):
     print("HAY" + member.name + "welcome to the party biitchhhh")
 
