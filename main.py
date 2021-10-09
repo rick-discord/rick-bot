@@ -5,14 +5,21 @@ import asyncio
 import time
 from discord.ext import commands, tasks
 from random import choice
+from discord.ext.commands import MemberConverter
+import asyncio
+import sys
 from replit import db
 
-client = commands.Bot(command_prefix=('-', 'rick ')
+
+
+client = commands.Bot(command_prefix=('-', 'rick '),
+                      intents=discord.Intents.default())
 
 @client.event
-  async def on_ready():
+async def on_ready():
     change_status.start()
-    print('BUuuUrp, whhooo im online baby'
+    print('BUuuUrp, whhooo im online baby')
+
 
 @client.command(name='ping', help='This command returns the latency')
 async def ping(ctx):
@@ -25,17 +32,6 @@ async def prefix(ctx):
         'the prefix is eather - or rick (custom per server prefixes coming soon)'
     )
 
-@client.command(name='credits', help='This command returns the credits')
-async def credits(ctx):
-    await ctx.send('Made by `doof.exe#8028` and `Trevi4kо#2636`')
-
-@client.command(name='invite', help='This command returns the invite url')
-async def invite(ctx):
-    await ctx.send(
-        'https://discord.com/api/oauth2/authorize?client_id=887063707568463872&permissions=8&scope=bot'
-    )
-
-#---------------fun---------------
 
 @client.command(name='hello',
                 help='This command returns a random welcome message')
@@ -46,6 +42,19 @@ async def hello(ctx):
         'BUuUUrp, sup bitch'
     ]
     await ctx.send(choice(responses))
+
+
+@client.command(name='credits', help='This command returns the credits')
+async def credits(ctx):
+    await ctx.send('Made by `doof.exe#8028` and `Trevi4kо#2636`')
+
+
+@client.command(name='invite', help='This command returns the invite url')
+async def invite(ctx):
+    await ctx.send(
+        'https://discord.com/api/oauth2/authorize?client_id=887063707568463872&permissions=8&scope=bot'
+    )
+
 
 @client.command(name='penis',
                 aliases=['pp', 'dick'],
@@ -130,6 +139,7 @@ async def website(ctx):
 async def dm(ctx):
     await ctx.author.send('slidin in the dms')
 
+
 @client.command(name='nuke', help='nukes the server')
 async def nuke(ctx):
     await ctx.send('**NUKING SERVER**')
@@ -157,16 +167,6 @@ async def cap(ctx):
 async def chill(ctx):
     await ctx.send("BUuuUrp I'm in " + str(len(client.guilds)) + " servers!")
 
-
-#welcome
-@client.command
-async def on_member_join(member):
-    print("HAY" + member.name + "welcome to the party biitchhhh")
-
-
-@client.event
-async def on_member_leave(member):
-    print("well BuUuURp fuck you to leaveing us" + member.name)
 
 
 #status
