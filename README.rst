@@ -1,8 +1,9 @@
-============
 rick bot
 ============
-#description
+description
+============
 is a discord bot based off Rick Sanchez from rick and morty
+============
 #commands
   -18+  
 
