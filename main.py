@@ -4,6 +4,7 @@ import json
 import time
 from discord.ext import commands, tasks
 from random import choice
+from asyncio import sleep
 from replit import db
 
 client = commands.Bot(command_prefix=('-', 'rick '), intents=discord.Intents.default())
@@ -152,7 +153,11 @@ async def welcome(ctx):
     ]
     await ctx.send(choice(responses))
 
-
+@client.command(name='website', aliases=['site'], help='This command returns the website')
+async def website(ctx):
+    await ctx.send(
+        'https://site.stickman-dev.repl.co/'
+    )
 
 
 #----------status----------
