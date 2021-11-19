@@ -159,13 +159,19 @@ async def website(ctx):
         'https://site.stickman-dev.repl.co/'
     )
 
+@client.command(name='donate', aliases=['dono'], help='sands ths donate link')
+async def donate(ctx):
+    await ctx.send(
+        'https://www.paypal.com/paypalme/rickdonate'
+    )
+
 
 #----------status----------
 @tasks.loop(seconds=10)
 async def change_status():
     await client.change_presence(activity=discord.Game(choice(status)))
 
-
+ 
 status = [
     '-help', 'made by doof.exe#8028 and Trevi4kо#2636', 'BuUuURp',
     'wabalabadubdub', 'and thats the way the news gos'
